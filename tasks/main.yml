@@ -1,3 +1,7 @@
 ---
 - name: install redir
   apt: name=redir state=present
+
+- name: put redir.rb
+  template: src=redir.rb dest=/etc/eye/redir-{{ name }}.rb
+  notify: reload eye
